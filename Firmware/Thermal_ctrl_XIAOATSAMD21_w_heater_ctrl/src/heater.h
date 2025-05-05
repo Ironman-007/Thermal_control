@@ -8,8 +8,5 @@
 #define HEATER_PIN_3 9
 #define HEATER_PIN_4 10
 
-#define PID_kp 2.0
-#define PID_ki 5.0
-#define PID_kd 1.0
-
-#define PID_MAX 255
+extern void heater_init(void);
+extern void heater_set_pwm(uint8_t heater_pwm_1, uint8_t heater_pwm_2, uint8_t heater_pwm_3, uint8_t heater_pwm_4);

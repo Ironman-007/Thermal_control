@@ -323,7 +323,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 if (self.heater_pwm1 > 255):
                     self.heater_pwm1 = 255
                 if (self.heater_pwm1 < 0):
-                    self.heater_pwm1 = 1
+                    self.heater_pwm1 = 0
 
             if(self.rtd_sel_2 == 0):
                 self.heater_pwm2 = 0
@@ -339,7 +339,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 if (self.heater_pwm2 > 255):
                     self.heater_pwm2 = 255
                 if (self.heater_pwm2 < 0):
-                    self.heater_pwm2 = 1
+                    self.heater_pwm2 = 0
 
             if(self.rtd_sel_3 == 0):
                 self.heater_pwm3 = 0
@@ -355,7 +355,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 if (self.heater_pwm3 > 255):
                     self.heater_pwm3 = 255
                 if (self.heater_pwm3 < 0):
-                    self.heater_pwm3 = 1
+                    self.heater_pwm3 = 0
 
             if(self.rtd_sel_4 == 0):
                 self.heater_pwm4 = 0
@@ -371,7 +371,7 @@ class MainWindow(QtWidgets.QMainWindow):
                 if (self.heater_pwm4 > 255):
                     self.heater_pwm4 = 255
                 if (self.heater_pwm4 < 0):
-                    self.heater_pwm4 = 1
+                    self.heater_pwm4 = 0
 
             self.HEATER_1_PWM.pop(0)
             self.HEATER_1_PWM.append(self.heater_pwm1)
@@ -396,7 +396,7 @@ class MainWindow(QtWidgets.QMainWindow):
             self.heater4_pwm_plt.plot(self.time_index, self.HEATER_4_PWM, pen=pg.mkPen('g', width=3))
 
             # write the heater PWM to the serial port
-            # self.ser.write(bytes([self.heater_pwm1, self.heater_pwm2, self.heater_pwm3, self.heater_pwm4]))
+            self.ser.write(bytes([self.heater_pwm1, self.heater_pwm2, self.heater_pwm3, self.heater_pwm4]))
             # self.ser.flush()
             print(bytes([self.heater_pwm1, self.heater_pwm2, self.heater_pwm3, self.heater_pwm4]))
 
