@@ -395,6 +395,11 @@ class MainWindow(QtWidgets.QMainWindow):
             self.heater3_pwm_plt.plot(self.time_index, self.HEATER_3_PWM, pen=pg.mkPen('k', width=3))
             self.heater4_pwm_plt.plot(self.time_index, self.HEATER_4_PWM, pen=pg.mkPen('g', width=3))
 
+            # write the heater PWM to the serial port
+            # self.ser.write(bytes([self.heater_pwm1, self.heater_pwm2, self.heater_pwm3, self.heater_pwm4]))
+            # self.ser.flush()
+            print(bytes([self.heater_pwm1, self.heater_pwm2, self.heater_pwm3, self.heater_pwm4]))
+
             self.log.append(current_time + " -> HEATER1: " + str(self.heater_pwm1) + " | HEATER2: " + str(self.heater_pwm2) +
                             " | HEATER3: " + str(self.heater_pwm3) + " | HEATER4: " + str(self.heater_pwm4))
 
@@ -450,6 +455,26 @@ class MainWindow(QtWidgets.QMainWindow):
                     self.waveform_color = 'b'
 
     def set_heater(self):
+        self.heater_1_error_old = 0
+        self.heater_1_error = 0
+        self.heater_1_error_acc = 0
+        self.heater_1_error_diff = 0
+
+        self.heater_2_error_old = 0
+        self.heater_2_error = 0
+        self.heater_2_error_acc = 0
+        self.heater_2_error_diff = 0
+
+        self.heater_3_error_old = 0
+        self.heater_3_error = 0
+        self.heater_3_error_acc = 0
+        self.heater_3_error_diff = 0
+
+        self.heater_4_error_old = 0
+        self.heater_4_error = 0
+        self.heater_4_error_acc = 0
+        self.heater_4_error_diff = 0
+
         self.heater_target_temp1 = int(self.heater1_temp_set.text())
         self.heater_target_temp2 = int(self.heater2_temp_set.text())
         self.heater_target_temp3 = int(self.heater3_temp_set.text())
