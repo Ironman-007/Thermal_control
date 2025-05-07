@@ -38,8 +38,8 @@ def read_current_time():
     current_time = now.strftime("%Z:%j/%H:%M:%S")
     return current_time
 
-PID_KP = 0.5
-PID_KI = 0.1
+PID_KP = 0.2
+PID_KI = 0.02
 PID_KD = 0.05
 
 class MainWindow(QtWidgets.QMainWindow):
@@ -77,6 +77,9 @@ class MainWindow(QtWidgets.QMainWindow):
         self.auto_btn.clicked.connect(self.set_auto_recording)
 
         self.set_heater_btn.clicked.connect(self.set_heater)
+        self.set_heater_btn_2.clicked.connect(self.set_heater)
+        self.set_heater_btn_3.clicked.connect(self.set_heater)
+        self.set_heater_btn_4.clicked.connect(self.set_heater)
 
         self.recording_bar.setValue(0)
         self.recording     = 0
@@ -317,6 +320,8 @@ class MainWindow(QtWidgets.QMainWindow):
                 self.heater_1_error_acc += self.heater_1_error
                 self.heater_1_error_diff = self.heater_1_error - self.heater_1_error_old
                 self.heater_1_error_old = self.heater_1_error
+
+                print(self.heater_1_error, self.heater_1_error_acc, self.heater_1_error_diff)
 
                 self.heater_pwm1 = int(PID_KP * self.heater_1_error + PID_KI * self.heater_1_error_acc + PID_KD * self.heater_1_error_diff)
 
