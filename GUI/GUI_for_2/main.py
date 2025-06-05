@@ -22,17 +22,17 @@ import struct
 import os.path
 from binascii import hexlify
 
-a1 = 3.73009464
-b1 = 2020.44166436
+a1 = 3.79284836
+b1 = 2086.73147131
 
-a2 = 3.72613712
-b2 = 2013.50406392
+a2 = 3.81161885
+b2 = 2064.36345492
 
-a3 = 3.7352784
-b3 = 2016.99632426
+a3 = 3.83045082
+b3 = 2066.01513934
 
-a4 = 3.74913261
-b4 = 2016.57390942
+a4 = 3.79692623
+b4 = 2064.46495902
 
 DATA_NUM = 100
 
@@ -221,10 +221,10 @@ class MainWindow(QtWidgets.QMainWindow):
             rtd_4_temp_i = recv_data[12:16]
             rtd_4_temp_d = int.from_bytes(rtd_4_temp_i, "little")
 
-            # rtd_1_temp_d = (rtd_1_temp_d - b1)/a1
-            # rtd_2_temp_d = (rtd_2_temp_d - b2)/a2
-            # rtd_3_temp_d = (rtd_3_temp_d - b3)/a3
-            # rtd_4_temp_d = (rtd_4_temp_d - b4)/a4
+            rtd_1_temp_d = (rtd_1_temp_d - b1)/a1
+            rtd_2_temp_d = (rtd_2_temp_d - b2)/a2
+            rtd_3_temp_d = (rtd_3_temp_d - b3)/a3
+            rtd_4_temp_d = (rtd_4_temp_d - b4)/a4
 
             # print(rtd_1_temp_d, rtd_2_temp_d, rtd_3_temp_d, rtd_4_temp_d)
             # show only two digits

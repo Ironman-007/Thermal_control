@@ -5,13 +5,11 @@ import struct
 import sys
 from sklearn.linear_model import LinearRegression
 
-temps = [-17.6, -14.3, 13.7, 22.7, 23.8]
+temps = [-13.8, 6.2, 22.2]
 
-data_file_0 = "Temperature_cali_data_-17.6"
-data_file_1 = "Temperature_cali_data_-14.3"
-data_file_2 = "Temperature_cali_data_13.7"
-data_file_3 = "Temperature_cali_data_22.7"
-data_file_4 = "Temperature_cali_data_23.8"
+data_file_0 = "Temperature_cali_data_-13.8"
+data_file_1 = "Temperature_cali_data_6.2"
+data_file_2 = "Temperature_cali_data_22.2"
 
 bytecnt_per_frame = 16
 
@@ -87,16 +85,6 @@ RTD2_MEAN.append(calculate_mean_std(data_file_2)[1])
 RTD3_MEAN.append(calculate_mean_std(data_file_2)[2])
 RTD4_MEAN.append(calculate_mean_std(data_file_2)[3])
 
-RTD1_MEAN.append(calculate_mean_std(data_file_3)[0])
-RTD2_MEAN.append(calculate_mean_std(data_file_3)[1])
-RTD3_MEAN.append(calculate_mean_std(data_file_3)[2])
-RTD4_MEAN.append(calculate_mean_std(data_file_3)[3])
-
-RTD1_MEAN.append(calculate_mean_std(data_file_4)[0])
-RTD2_MEAN.append(calculate_mean_std(data_file_4)[1])
-RTD3_MEAN.append(calculate_mean_std(data_file_4)[2])
-RTD4_MEAN.append(calculate_mean_std(data_file_4)[3])
-
 RTD1_STD.append(calculate_mean_std(data_file_0)[4])
 RTD2_STD.append(calculate_mean_std(data_file_0)[5])
 RTD3_STD.append(calculate_mean_std(data_file_0)[6])
@@ -111,16 +99,6 @@ RTD1_STD.append(calculate_mean_std(data_file_2)[4])
 RTD2_STD.append(calculate_mean_std(data_file_2)[5])
 RTD3_STD.append(calculate_mean_std(data_file_2)[6])
 RTD4_STD.append(calculate_mean_std(data_file_2)[7])
-
-RTD1_STD.append(calculate_mean_std(data_file_3)[4])
-RTD2_STD.append(calculate_mean_std(data_file_3)[5])
-RTD3_STD.append(calculate_mean_std(data_file_3)[6])
-RTD4_STD.append(calculate_mean_std(data_file_3)[7])
-
-RTD1_STD.append(calculate_mean_std(data_file_4)[4])
-RTD2_STD.append(calculate_mean_std(data_file_4)[5])
-RTD3_STD.append(calculate_mean_std(data_file_4)[6])
-RTD4_STD.append(calculate_mean_std(data_file_4)[7])
 
 plt.errorbar(temps, RTD1_MEAN, yerr=RTD1_STD, fmt ='o')
 plt.errorbar(temps, RTD2_MEAN, yerr=RTD2_STD, fmt ='o')

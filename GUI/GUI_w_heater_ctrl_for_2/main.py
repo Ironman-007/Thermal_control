@@ -21,16 +21,16 @@ import struct
 import os.path
 from binascii import hexlify
 
-a1 = 3.73009464
-b1 = 2020.44166436
-a2 = 3.72613712
-b2 = 2013.50406392
-a3 = 3.7352784
-b3 = 2016.99632426
-a4 = 3.74913261
-b4 = 2016.57390942
+a1 = 3.79284836
+b1 = 2086.73147131
+a2 = 3.81161885
+b2 = 2064.36345492
+a3 = 3.83045082
+b3 = 2066.01513934
+a4 = 3.79692623
+b4 = 2064.46495902
 
-DATA_NUM = 50
+DATA_NUM = 200
 recv_data_cnt = 16
 
 def read_current_time():
@@ -38,8 +38,8 @@ def read_current_time():
     current_time = now.strftime("%Z:%j/%H:%M:%S")
     return current_time
 
-PID_KP = 0.2
-PID_KI = 0.02
+PID_KP = 3
+PID_KI = 0.002
 PID_KD = 0.05
 
 class MainWindow(QtWidgets.QMainWindow):
