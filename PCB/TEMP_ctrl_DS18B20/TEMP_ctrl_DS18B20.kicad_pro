@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.0
+          "min_clearance": 0.1016
         }
       },
       "diff_pair_dimensions": [
@@ -188,6 +188,7 @@
       ],
       "track_widths": [
         0.0,
+        0.1016,
         0.1524,
         0.254,
         0.508,
@@ -226,6 +227,10 @@
         {
           "diameter": 0.0,
           "drill": 0.0
+        },
+        {
+          "diameter": 0.5,
+          "drill": 0.3
         }
       ],
       "zones_allow_external_fillets": false
@@ -460,6 +465,7 @@
       "single_global_label": "ignore",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
+      "undefined_netclass": "error",
       "unit_value_mismatch": "error",
       "unresolved_variable": "error",
       "wire_dangling": "error"
@@ -470,7 +476,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "TEMP_ctrl.kicad_pro",
+    "filename": "TEMP_ctrl_DS18B20.kicad_pro",
     "version": 3
   },
   "net_settings": {
